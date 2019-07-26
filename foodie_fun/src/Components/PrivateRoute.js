@@ -4,7 +4,7 @@ import { Route, Redirect } from 'react-router-dom'
 export default function(props) {
   const {
     component: Component,
-    ...rest,
+    ...rest
   } = props
 
   return (
