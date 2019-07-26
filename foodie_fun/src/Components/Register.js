@@ -1,5 +1,5 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { createUser } from '../actions'
 
@@ -48,7 +48,7 @@ class Register extends React.Component {
 
           {isLoading ? <p>Creating account, please wait...</p> : <button className='registerButton' type='submit'>Create Account</button> }
         </form>
-        <p className='loginLink'>Already a member? Click <a href='#'>here</a> to login.</p>
+        <p className='loginLink'>Already a member? Click <Link to='/login'>here</Link> to login.</p>
       </div>
     )
   }
