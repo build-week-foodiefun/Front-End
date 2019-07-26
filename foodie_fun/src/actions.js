@@ -45,7 +45,7 @@ export function login(username, password) {
   }
 }
 
-export default getAccount() {
+export function getAccount() {
   return (dispatch) => {
     dispatch({GET_ACCOUNT_START})
 
