@@ -47,7 +47,7 @@ export function login(username, password) {
 
 export function getAccount() {
   return (dispatch) => {
-    dispatch({GET_ACCOUNT_START})
+    dispatch({type: GET_ACCOUNT_START})
 
     const headers = {
       Authorization: localStorage.getItem('token'),
