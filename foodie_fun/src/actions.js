@@ -67,7 +67,7 @@ export function getAccount() {
   }
 }
 
-export function addMeal() {
+export function addMeal(payload) {
   return (dispatch) => {
     dispatch({type: ADD_MEAL_START})
 
@@ -75,7 +75,7 @@ export function addMeal() {
       Authorization: localStorage.getItem('token'),
     }
 
-    axios.post('https://build-week-foodiefun.herokuapp.com/api/meals', { headers })
+    axios.post('https://build-week-foodiefun.herokuapp.com/api/meals', payload, { headers })
       .then((res) => {
         dispatch({type: ADD_MEAL_SUCCESS, payload: res.data})
       })
