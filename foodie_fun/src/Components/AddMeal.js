@@ -98,7 +98,7 @@ class AddMeal extends React.Component {
     return (
       <form className='addMeal' onSubmit={this.newMeal}>
         <h2 className='addMealHeader'>Was it amazing? The worst ever? Add it so you'll have a way to remember!</h2>
-        <p className='required'>* required All fields are required.</p>
+        <p className='required'>* All fields are required.</p>
         <input className='restNameInput' type='text' name='restaurant_name' placeholder='Restaurant Name' value={restaurant_name} required onChange={this.changeHandler} /><br />
         <input className='restTypeInput' type='text' name='restaurant_type' placeholder='Type of Restaurant' value={restaurant_type} required onChange={this.changeHandler} /><br />
         <div className='itemPhotoContainer'>

@@ -19,6 +19,7 @@ class MealList extends React.Component {
             item_comment,
             wait_time,
             date_visited,
+            id
           } = meal
 
           if (userData.isLoading) {
@@ -28,15 +29,15 @@ class MealList extends React.Component {
             return <h1 className='pleaseAdd'>Please add a meal to get started!</h1>
           }
 
-          return <li className='mealCard'>
+          return <li className='mealCard' key={id}>
             <h2 className='restName'>{restaurant_name}</h2>
-            <p className='restType'>Type of restaurant: {restaurant_type}</p>
+            <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
             <image className='itemImg' src={`${item_photo}`} />
             <h3 className='itemName'>Meal: {item_name}</h3>
             <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /><br />
-            <p className='comment'>Comments: * {item_comment}</p>
-            <p className='waitTime'>Time waited for meal: {wait_time}</p>
-            <p className='visitDate'>Ordered on: {date_visited}</p>
+            <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
+            <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
+            <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p>
           </li>
         })}
       </ul>
@@ -54,7 +55,8 @@ const mapStateToProps = state => ({
   wait_time: state.wait_time,
   date_visited: state.date_visited,
   userData: state.userData,
-  isLoading: state.isLoading
+  isLoading: state.isLoading,
+  id: state.id
 })
 
 export default connect(mapStateToProps)(MealList)

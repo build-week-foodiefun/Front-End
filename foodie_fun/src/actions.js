@@ -80,7 +80,7 @@ export function addMeal(payload) {
         dispatch({type: ADD_MEAL_SUCCESS, payload: res.data})
       })
       .catch((err) => {
-        dispatch({type: ADD_MEAL_FAILED, payload: err.response.data})
+        dispatch({type: ADD_MEAL_FAILED, payload: err.response})
       })
   }
 }
