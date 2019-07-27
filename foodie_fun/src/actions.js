@@ -74,7 +74,7 @@ export function addMeal(payload) {
     const headers = {
       Authorization: localStorage.getItem('token'),
     }
-
+    console.log(payload)
     axios.post('https://build-week-foodiefun.herokuapp.com/api/meals', payload, { headers })
       .then((res) => {
         dispatch({type: ADD_MEAL_SUCCESS, payload: res.data})

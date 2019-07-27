@@ -8,6 +8,17 @@ class AddMeal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      
+      // restaurant_name: "Taco Shop",
+      //   restaurant_type: "Mexican",
+      //     item_name: "Chorizo Tacos",
+      //       item_photo:
+      // "https://images.unsplash.com/photo-1552332386-f8dd00dc2f85?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80",
+      //   food_rating: 5,
+      //     item_comment: "These tacos were awesome!",
+      //       wait_time: "There was no wait!",
+      //         date_visited: "2019-07-22"
+    
       restaurant_name: '',
       restaurant_type: '',
       item_photo: '',
@@ -41,7 +52,7 @@ class AddMeal extends React.Component {
       wait_time,
       date_visited
     }
-
+    console.log(payload)
     this.props.addMeal(payload)
 
     this.setState({
@@ -85,7 +96,7 @@ class AddMeal extends React.Component {
     } = this.state
     console.log(food_rating)
     return (
-      <form className='addMeal' onSubmit={this.addMeal}>
+      <form className='addMeal' onSubmit={this.newMeal}>
         <h2 className='addMealHeader'>Was it amazing? The worst ever? Add it so you'll have a way to remember!</h2>
         <input className='restName' type='text' name='restaurant_name' placeholder='Restaurant Name' value={restaurant_name} onChange={this.changeHandler} /><br />
         <input className='restType' type='text' name='restaurant_type' placeholder='Type of Restaurant' value={restaurant_type} onChange={this.changeHandler} /><br />

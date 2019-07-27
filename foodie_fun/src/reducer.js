@@ -95,6 +95,7 @@ export default function(state = initialState, action) {
       }
     }
     case ADD_MEAL_SUCCESS: {
+      console.log(action.payload)
       return {
         ...state,
         isLoading: false,
@@ -103,6 +104,7 @@ export default function(state = initialState, action) {
       }
     }
     case ADD_MEAL_FAILED: {
+      console.log(action.payload)
       return {
         ...state,
         isLoading: false,
