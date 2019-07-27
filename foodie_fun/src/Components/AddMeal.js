@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
 import { addMeal } from '../actions'
@@ -91,7 +92,7 @@ class AddMeal extends React.Component {
         <label className='photoLabel' for='item_photo'>Choose a Restaurant Photo:</label>
         <input className='itemPhoto' id='item_photo' type='file' name='item_photo' accept='image/*' value={item_photo} onChange={this.changeHandler} /><br />
         <input className='itemName' type='text' name='item_name' placeholder='The Name of the Meal' value={item_name} onChange={this.changeHandler} required /><br />
-        <StarRatingComponent className='rating' name='rating' starCount={5} value={food_rating} onStarClick={this.starClick} renderStarIcon={() => <span>🍔</span>} /><br />
+        <StarRatingComponent className='rating' name='rating' starCount={5} value={food_rating} onStarClick={this.starClick} renderStarIcon={() => <span role='img' aria-label='burger'>🍔</span>} /><br />
         <input className='comment' type='text' name='item_comment' placeholder='Leave a Comment' value={item_comment} onChange={this.changeHandler} /><br />
         <input className='waitTime' type='text' name='wait_time' placeholder='How long did you wait?' value={wait_time} onChange={this.changeHandler} /><br />
         <label className='dateLabel' for='date_visited'>The Date You Ate:</label>
@@ -105,4 +106,4 @@ const mapDispatchToProps = {
   addMeal,
 }
 
-export default connect(null,mapDispatchToProps)(AddMeal)
+export default withRouter(connect(null,mapDispatchToProps)(AddMeal))

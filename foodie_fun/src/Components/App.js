@@ -12,6 +12,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <PrivateRoute exact path='/' component={Dashboard} />
+        <Route path='/add' render={Dashboard} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
       </div>

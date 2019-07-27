@@ -5,6 +5,7 @@ export default function() {
   return (
     <div className='navBar'>
       <Link to='/'>Home</Link>
+      <Link to='/add'>Add A Meal</Link>
     </div>
   )
 }
