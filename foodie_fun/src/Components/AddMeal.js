@@ -1,4 +1,5 @@
 import React from 'react'
+import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
 import { addMeal } from '../actions'
 
@@ -64,6 +65,12 @@ class AddMeal extends React.Component {
     })
   }
 
+  starClick = (next,prev,name) => {
+    this.setState({
+      food_rating: next,
+    })
+  }
+
   render() {
     const {
       restaurant_name,
@@ -84,7 +91,7 @@ class AddMeal extends React.Component {
         <label className='photoLabel' for='item_photo'>Choose a Restaurant Photo:</label>
         <input className='itemPhoto' type='file' name='item_photo' accept='image/*' value={item_photo} onChange={this.changeHandler} /><br />
         <input className='itemName' type='text' name='item_name' placeholder='The Name of the Meal' value={item_name} onChange={this.changeHandler} /><br />
-        <input className='rating' type='number' name='' placeholder='' value={} onChange={this.changeHandler} /><br />
+        <StarRatingComponent className='rating' name='rating' starCount={5} value={food_rating} onStarClick={this.starClick} renderStarIcon={() => <span>🍔</span>} /><br />
         <input className='' type='' name='' placeholder='' value={} onChange={this.changeHandler} /><br />
         <input className='' type='' name='' placeholder='' value={} onChange={this.changeHandler} /><br />
         <input className='' type='' name='' placeholder='' value={} onChange={this.changeHandler} /><br />
