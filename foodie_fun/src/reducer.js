@@ -8,6 +8,9 @@ import {
   GET_ACCOUNT_START,
   GET_ACCOUNT_SUCCESS,
   GET_ACCOUNT_FAILED,
+  ADD_MEAL_START,
+  ADD_MEAL_SUCCESS,
+  ADD_MEAL_FAILED,
 } from './actions'
 
 const initialState = {
@@ -73,11 +76,33 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
+        error: null,
         userData: action.payload
       }
     }
     case GET_ACCOUNT_FAILED: {
       console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.message
+      }
+    }
+    case ADD_MEAL_START: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case ADD_MEAL_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        userData: action.payload
+      }
+    }
+    case ADD_MEAL_FAILED: {
       return {
         ...state,
         isLoading: false,
