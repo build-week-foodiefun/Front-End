@@ -37,7 +37,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        error: action.payload.message
       }
     }
     case LOGIN_START: {
@@ -59,7 +59,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        error: action.payload.message
       }
     }
     case GET_ACCOUNT_START: {
@@ -81,7 +81,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload
+        error: action.payload.message
       }
     }
     default:

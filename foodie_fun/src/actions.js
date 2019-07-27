@@ -12,6 +12,10 @@ export const GET_ACCOUNT_START = 'GET_DATA_START'
 export const GET_ACCOUNT_SUCCESS = 'GET_DATA_SUCCESS'
 export const GET_ACCOUNT_FAILED = 'GET_DATA_FAILED'
 
+export const ADD_MEAL_START = 'ADD_MEAL_START'
+export const ADD_MEAL_SUCCESS = 'ADD_MEAL_SUCCESS'
+export const ADD_MEAL_FAILED = 'ADD_MEAL_FAILED'
+
 
 export function createUser(username, password) {
   return (dispatch) => {
@@ -59,6 +63,24 @@ export function getAccount() {
       })
       .catch((err) => {
         dispatch({type: GET_ACCOUNT_FAILED, payload: err.response.data})
+      })
+  }
+}
+
+export function addMeal() {
+  return (dispatch) => {
+    dispatch({type: ADD_MEAL_START})
+
+    const headers = {
+      Authorization: localStorage.getItem('token'),
+    }
+
+    axios.post('https://build-week-foodiefun.herokuapp.com/api/meals', { headers })
+      .then((res) => {
+        dispatch({type: ADD_MEAL_SUCCESS, payload: res.data})
+      })
+      .catch((err) => {
+        dispatch({type: ADD_MEAL_FAILED, payload: err.response.data})
       })
   }
 }
