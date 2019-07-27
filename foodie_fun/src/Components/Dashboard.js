@@ -5,6 +5,7 @@ import { Route, withRouter } from 'react-router-dom'
 import { getAccount } from '../actions'
 import NavBar from './NavBar'
 import AddMeal from './AddMeal'
+import MealList from './MealList'
 
 class App extends React.Component {
 
@@ -21,6 +22,7 @@ class App extends React.Component {
           <NavBar />
         </nav>
 
+        <Route exact path='/' render={props => <MealList {...props} />} />
         <Route path='/add' render={(props) => <AddMeal {...props} />} />
       </div>
     );

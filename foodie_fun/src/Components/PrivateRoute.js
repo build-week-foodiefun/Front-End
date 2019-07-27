@@ -9,20 +9,14 @@ function PrivateRoute(props) {
   } = props
 
   return (
+
     <Route {...rest} render={() => {
+
       const token = localStorage.getItem('token')
 
-      if (token) {
-        if (props.userData === []) {
-          return <Redirect to='/add' />
-        }
-        else {
-          return <Component />
-        }
-      }
-      else {
-       return <Redirect to='/login' />
-      }
+      return token
+        ? <Component />
+        : <Redirect to="/login" />
     }} />
   )
 }
