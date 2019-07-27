@@ -100,3 +100,9 @@ class AddMeal extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = {
+  addMeal,
+}
+
+export default connect(null,mapDispatchToProps)(AddMeal)
