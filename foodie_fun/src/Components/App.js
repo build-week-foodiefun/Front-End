@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
-import { Route } from 'react-router-dom'
+import { Route, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import Register from './Register'
 import Dashboard from './Dashboard'
 import PrivateRoute from './PrivateRoute'
@@ -8,7 +9,7 @@ import Login from './Login'
 
 class App extends React.Component {
 
-  render() {  
+  render() {
     return (
       <div className="App">
         <PrivateRoute exact path='/' component={Dashboard} />
@@ -20,4 +21,8 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = (state) => ({
+  userData: state.userData,
+})
+
+export default withRouter(connect(mapStateToProps)(App))

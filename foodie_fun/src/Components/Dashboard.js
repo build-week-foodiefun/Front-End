@@ -13,8 +13,9 @@ class App extends React.Component {
   }
 
   render() {
-    // { this.props.userData === [] && this.props.history.push('/add') }
+
     return (
+       
       <div className="App">
         <nav>
           <NavBar />
