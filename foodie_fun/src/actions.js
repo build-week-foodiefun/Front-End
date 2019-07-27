@@ -20,6 +20,10 @@ export const UPDATE_MEAL_START = 'UPDATE_MEAL_START'
 export const UPDATE_MEAL_SUCCESS = 'UPDATE_MEAL_SUCCESS'
 export const UPDATE_MEAL_FAILED = 'UPDATE_MEAL_FAILED'
 
+export const DELETE_MEAL_START = 'DELETE_MEAL_START'
+export const DELETE_MEAL_SUCCESS = 'DELETE_MEAL_SUCCESS'
+export const DELETE_MEAL_FAILED = 'DELETE_MEAL_FAILED'
+
 
 export function createUser(username, password) {
   return (dispatch) => {
@@ -103,6 +107,24 @@ export function updateMeal(payload, id) {
       })
       .catch((err) => {
         dispatch({ type: UPDATE_MEAL_FAILED, payload: err.response })
+      })
+  }
+}
+
+export function deleteMeal(id) {
+  return (dispatch) => {
+    dispatch({ type: DELETE_MEAL_START })
+
+    const headers = {
+      Authorization: localStorage.getItem('token'),
+    }
+    console.log(payload)
+    axios.delete(`https://build-week-foodiefun.herokuapp.com/api/meals/${id}`, { headers })
+      .then((res) => {
+        dispatch({ type: DELETE_MEAL_SUCCESS, payload: res.data })
+      })
+      .catch((err) => {
+        dispatch({ type: DELETE_MEAL_FAILED, payload: err.response })
       })
   }
 }
