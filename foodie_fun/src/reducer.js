@@ -14,6 +14,9 @@ import {
   UPDATE_MEAL_START,
   UPDATE_MEAL_SUCCESS,
   UPDATE_MEAL_FAILED,
+  DELETE_MEAL_START,
+  DELETE_MEAL_SUCCESS,
+  DELETE_MEAL_FAILED,
 } from './actions'
 
 const initialState = {
@@ -130,6 +133,29 @@ export default function(state = initialState, action) {
       }
     }
     case UPDATE_MEAL_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      }
+    }
+    case DELETE_MEAL_START: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case DELETE_MEAL_SUCCESS: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        userData: action.payload
+      }
+    }
+    case DELETE_MEAL_FAILED: {
       console.log(action.payload)
       return {
         ...state,
