@@ -12,7 +12,7 @@ class AddMeal extends React.Component {
       restaurant_type: '',
       item_photo: '',
       item_name: '',
-      food_rating: '',
+      food_rating: 0,
       item_comment: '',
       wait_time: '',
       date_visited: '',
@@ -66,7 +66,7 @@ class AddMeal extends React.Component {
     })
   }
 
-  starClick = (next,prev,name) => {
+  onStarClick = (next,prev,name) => {
     this.setState({
       food_rating: next,
     })
@@ -83,7 +83,7 @@ class AddMeal extends React.Component {
       wait_time,
       date_visited
     } = this.state
-
+    console.log(food_rating)
     return (
       <form className='addMeal' onSubmit={this.addMeal}>
         <h2 className='addMealHeader'>Was it amazing? The worst ever? Add it so you'll have a way to remember!</h2>
@@ -92,7 +92,7 @@ class AddMeal extends React.Component {
         <label className='photoLabel' for='item_photo'>Choose a Restaurant Photo:</label>
         <input className='itemPhoto' id='item_photo' type='file' name='item_photo' accept='image/*' value={item_photo} onChange={this.changeHandler} /><br />
         <input className='itemName' type='text' name='item_name' placeholder='The Name of the Meal' value={item_name} onChange={this.changeHandler} required /><br />
-        <StarRatingComponent className='rating' name='rating' starCount={5} value={food_rating} onStarClick={this.starClick} renderStarIcon={() => <span role='img' aria-label='burger'>🍔</span>} /><br />
+        <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} onStarClick={this.onStarClick} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /><br />
         <input className='comment' type='text' name='item_comment' placeholder='Leave a Comment' value={item_comment} onChange={this.changeHandler} /><br />
         <input className='waitTime' type='text' name='wait_time' placeholder='How long did you wait?' value={wait_time} onChange={this.changeHandler} /><br />
         <label className='dateLabel' for='date_visited'>The Date You Ate:</label>
