@@ -30,7 +30,7 @@ class Login extends React.Component {
         this.props.history.push('/')
       })
       .catch((err) => {
-        console.error(err)
+        console.error(err.error)
       })
   }
 
@@ -46,7 +46,7 @@ class Login extends React.Component {
           <input type='text' name='username' placeholder='Username' value={username} onChange={this.handleChange} /><br />
           <input type='password' name='password' placeholder='Password' value={password} onChange={this.handleChange} /><br />
 
-          {isLoading ? <p>Creating account, please wait...</p> : <button className='registerButton' type='submit'>Create Account</button>}
+          {isLoading ? <p>Loggin in, please wait...</p> : <button className='registerButton' type='submit'>LogIn</button>}
         </form>
         <p className='loginLink'>Not a member? Click <Link to='/register'>here</Link> to create an account.</p>
       </div>
