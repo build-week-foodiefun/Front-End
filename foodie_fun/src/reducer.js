@@ -46,7 +46,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     case LOGIN_START: {
@@ -68,7 +68,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     case GET_ACCOUNT_START: {
@@ -91,7 +91,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     case ADD_MEAL_START: {
@@ -110,11 +110,11 @@ export default function(state = initialState, action) {
       }
     }
     case ADD_MEAL_FAILED: {
-      console.log(action.payload)
+      console.log(action.payload.data.error)
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     case UPDATE_MEAL_START: {
@@ -137,7 +137,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     case DELETE_MEAL_START: {
@@ -160,7 +160,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         isLoading: false,
-        error: action.payload.error
+        error: action.payload.data.error
       }
     }
     default:

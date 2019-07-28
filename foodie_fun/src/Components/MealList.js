@@ -4,12 +4,23 @@ import { connect } from 'react-redux'
 import StarRatingComponent from 'react-star-rating-component'
 
 class MealList extends React.Component {
+
+
+  
   render() {
     const { userData } = this.props
+
+    if (userData.isLoading) {
+      return <p>Meals are loading...</p>
+    }
+    else if (userData.length === 0) {
+      return <Link to='/add'><h1 className='pleaseAdd'>Please add a meal to get started!</h1></Link>
+    }
 
     return (
       <ul className='mealList'>
         {userData.map(meal => {
+
           const {
             restaurant_name,
             restaurant_type,
@@ -22,17 +33,12 @@ class MealList extends React.Component {
             id
           } = meal
 
-          if (userData.isLoading) {
-            return <p>Meals are loading...</p>
-          }
-          else if (userData === []) {
-            return <h1 className='pleaseAdd'>Please add a meal to get started!</h1>
-          }
+          console.log(item_photo)
 
           return <li className='mealCard' key={id}>
             <h2 className='restName'>{restaurant_name}</h2>
             <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
-            <image className='itemImg' src={`${item_photo}`} />
+            <img className='itemImg' src={`${item_photo}`} alt='A Meal' />
             <h3 className='itemName'>Meal: {item_name}</h3>
             <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /><br />
             <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
