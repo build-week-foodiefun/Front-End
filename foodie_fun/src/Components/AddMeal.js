@@ -39,6 +39,7 @@ class AddMeal extends React.Component {
       date_visited
     } = this.state
 
+
     const payload = {
       restaurant_name,
       restaurant_type,
@@ -80,6 +81,15 @@ class AddMeal extends React.Component {
     })
   }
 
+  fileHandler = evt => {
+    console.log(evt.target.files[0])
+    const formData = new FormData()
+    formData.append('newFile',evt.target.files[0], evt.target.files[0])
+    this.setState({
+      [evt.target.name]: formData
+    })
+  }
+
   render() {
     const {
       restaurant_name,
@@ -100,7 +110,7 @@ class AddMeal extends React.Component {
         <input className='restTypeInput' type='text' name='restaurant_type' placeholder='Type of Restaurant' value={restaurant_type} required onChange={this.changeHandler} /><br />
         <div className='itemPhotoContainer'>
           <label className='photoLabel' htmlFor='item_photo'>Choose a Restaurant Photo:</label><br />
-          <input className='itemPhotoInput' id='item_photo' type='file' name='item_photo' accept='image/*' value={item_photo} required onChange={this.changeHandler} /><br />
+          <input className='itemPhotoInput' id='item_photo' type='file' name='item_photo' accept='image/*' value={item_photo.name} required onChange={this.fileHandler} /><br />
         </div>
         <input className='itemNameInput' type='text' name='item_name' placeholder='The Name of the Meal' value={item_name} onChange={this.changeHandler} required /><br />
         <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} onStarClick={this.onStarClick} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /><br />

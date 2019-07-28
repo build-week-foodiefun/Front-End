@@ -4109,10 +4109,9 @@ formsy-react-components@^1.1.0:
     classnames "^2.2.5"
     prop-types "^15.5.10"
 
-formsy-react@^1.1.5:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/formsy-react/-/formsy-react-1.1.5.tgz#ee0911bb70712eb6fb9924d56fdb974a19006955"
-  integrity sha512-nNWe4Vbp6aDQ/zSxJ7gVQgD5+avFRVbydcjA2Om42flxpQFrKE54AAbuyEj3Jvv+2b9LVl+WLMAPalyvLjwNcQ==
+"formsy-react@https://github.com/christianalfoni/formsy-react#beta":
+  version "1.0.0"
+  resolved "https://github.com/christianalfoni/formsy-react#42e39cbc8fa14333374c56b38b9b9bf389916991"
   dependencies:
     form-data-to-object "^0.2.0"
     prop-types "^15.5.10"
