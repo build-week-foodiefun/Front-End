@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
+import { connect } from 'react-redux'
 
 
 class Meal extends React.Component {
@@ -36,3 +37,9 @@ class Meal extends React.Component {
     )
   }
 }
+
+const mapStateToProps = state => ({
+  userData: state.userData,
+})
+
+export default connect(mapStateToProps)(Meal)
