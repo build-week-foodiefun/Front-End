@@ -64,7 +64,7 @@ export default function(state = initialState, action) {
       }
     }
     case LOGIN_FAILED: {
-      console.log(action.payload.error)
+      console.log(action.payload)
       return {
         ...state,
         isLoading: false,
@@ -110,7 +110,7 @@ export default function(state = initialState, action) {
       }
     }
     case ADD_MEAL_FAILED: {
-      console.log(action.payload.error)
+      console.log(action.payload)
       return {
         ...state,
         isLoading: false,

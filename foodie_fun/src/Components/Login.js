@@ -41,7 +41,7 @@ class Login extends React.Component {
     return (
       <div className='register'>
         <form className='registerForm' onSubmit={this.handleSubmit}>
-          {error && <p className='error'>{error}</p>}
+          {error && <><p className='error'>{error}</p><br /> <p className='error'>Or create a new account.</p></>}
 
           <input type='text' name='username' placeholder='Username' value={username} onChange={this.handleChange} /><br />
           <input type='password' name='password' placeholder='Password' value={password} onChange={this.handleChange} /><br />
