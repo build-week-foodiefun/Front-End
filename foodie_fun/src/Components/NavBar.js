@@ -14,7 +14,7 @@ function NavBar(props) {
     <div className='navBar'>
       <Link to='/'>Home</Link>
       <Link to='/add'>Add A Meal</Link>
-      <button type='button' onClick={logout}>Logout</button>
+      <button className='logoutButton' type='button' onClick={logout}>Logout</button>
     </div>
   )
 }
