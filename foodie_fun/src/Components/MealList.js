@@ -8,9 +8,9 @@ class MealList extends React.Component {
 
   
   render() {
-    const { userData } = this.props
+    const { userData, isLoading } = this.props
 
-    if (userData.isLoading) {
+    if (isLoading) {
       return <p>Meals are loading...</p>
     }
     else if (userData.length === 0) {
