@@ -23,3 +23,16 @@ body {
 .register p a {
   color: white;
 }
+.register input {
+  border-radius: 5px;
+  padding: 4px;
+  margin: 2px;
+}
+.registerButton {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 4px 10px;
+}
+.registerButton:hover {
+  background: rgb(187, 187, 187);
+}
