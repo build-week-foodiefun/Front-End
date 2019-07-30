@@ -33,8 +33,8 @@ class Register extends React.Component {
         console.error(err)
       })
   }
-
   render() {
+    console.log(this.props)
     const {username, password} = this.state
     const {isLoading, error} = this.props
 

@@ -66,8 +66,9 @@ class AddMeal extends React.Component {
 
   deleteItem = evt => {
     evt.preventDefault()
+    console.log(this.props.match.params.id)
 
-    const id = this.props.match.prams.id
+    const id = this.props.match.params.id
 
     this.props.deleteMeal(id)
     this.props.history.push('/')
@@ -110,9 +111,13 @@ class AddMeal extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  userData: state.userData,
+})
+
 const mapDispatchToProps = {
   updateMeal,
   deleteMeal,
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(AddMeal))
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddMeal))

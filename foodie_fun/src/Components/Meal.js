@@ -2,13 +2,15 @@ import React from 'react'
 import { Link, Route } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
+import UpdateMeal from './UpdateMeal'
 
 
 class Meal extends React.Component {
 
   render() {
     const meal = this.props.userData.find(meal => `${meal.id}` === this.props.match.params.id)
-    const { restaurant_name,
+    const { 
+      restaurant_name,
       restaurant_type,
       item_photo,
       item_name,
@@ -17,7 +19,7 @@ class Meal extends React.Component {
       wait_time,
       date_visited
     } = meal
-
+    console.log(meal)
     return (
       <div className='meal'>
         {this.props.error && <p className='error'>{this.props.error}</p>}
@@ -30,7 +32,7 @@ class Meal extends React.Component {
         <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
         <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p>
         <nav id='mealNav'>
-          <Link to={`/meal/:id/update`}>Update Meal</Link>
+          <Link to={`/meal/${meal.id}/update`}>Update Meal</Link>
         </nav>
         <Route path={`/meal/:id/update`} render={props => <UpdateMeal {...props} />} />
       </div>

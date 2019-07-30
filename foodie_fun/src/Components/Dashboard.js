@@ -6,6 +6,7 @@ import { getAccount } from '../actions'
 import NavBar from './NavBar'
 import AddMeal from './AddMeal'
 import MealList from './MealList'
+import Meal from './Meal'
 
 class App extends React.Component {
 
@@ -24,6 +25,7 @@ class App extends React.Component {
 
         <Route exact path='/' render={props => <MealList {...props} />} />
         <Route path='/add' render={(props) => <AddMeal {...props} />} />
+        <Route path='/meal/:id' render={(props) => <Meal {...props} />} />
       </div>
     );
   }

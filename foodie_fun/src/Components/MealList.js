@@ -35,7 +35,7 @@ class MealList extends React.Component {
 
           console.log(item_photo)
 
-          return <Link key={meal.id} to={`/meal/${meal.id}`}>
+          return <Link key={id} to={`/meal/${id}`}>
               <li className='mealCard' key={id}>
               <h2 className='restName'>{restaurant_name}</h2>
               <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
