@@ -71,6 +71,7 @@ export function getAccount() {
         dispatch({type: GET_ACCOUNT_SUCCESS, payload: res.data})
       })
       .catch((err) => {
+        console.log(err)
         dispatch({type: GET_ACCOUNT_FAILED, payload: err.response.data})
       })
   }
