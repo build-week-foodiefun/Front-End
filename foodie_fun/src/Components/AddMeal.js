@@ -8,22 +8,22 @@ class AddMeal extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      restaurant_name: "Pizza Place TEST2",
-      restaurant_type: "Italian",
-      item_name: "Pepperoni Pizza",
-      item_photo: "https://images.unsplash.com/photo-1549800076-831d7a97afac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80",
-      food_rating: 5,
-      item_comment: "Wow, pizza was so good! I really enjoyed it!",
-      wait_time: "About 10 minutes.",
-      date_visited: "2018-11-02",
-      // restaurant_name: '',
-      // restaurant_type: '',
-      // item_photo: '',
-      // item_name: '',
-      // food_rating: 0,
-      // item_comment: '',
-      // wait_time: '',
-      // date_visited: '',
+      // restaurant_name: "Pizza Place TEST2",
+      // restaurant_type: "Italian",
+      // item_name: "Pepperoni Pizza",
+      // item_photo: "https://images.unsplash.com/photo-1549800076-831d7a97afac?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=333&q=80",
+      // food_rating: 5,
+      // item_comment: "Wow, pizza was so good! I really enjoyed it!",
+      // wait_time: "About 10 minutes.",
+      // date_visited: "2018-11-02",
+      restaurant_name: '',
+      restaurant_type: '',
+      item_photo: '',
+      item_name: '',
+      food_rating: 0,
+      item_comment: '',
+      wait_time: '',
+      date_visited: '',
     }
   }
 
