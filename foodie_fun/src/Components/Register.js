@@ -27,6 +27,7 @@ class Register extends React.Component {
 
     this.props.createUser(username, password)
       .then(() => {
+        !this.props.error &&
         this.props.history.push('/')
       })
       .catch((err) => {
