@@ -7,10 +7,15 @@
 
 .App {
   text-align: center;
+  width: 100%;
   flex-flow: column wrap;
+  align-items: center;
   display: flex;
   justify-content: center;
   color: white;
+}
+.App nav {
+  width: 100%;
 }
 
 body {
@@ -31,6 +36,7 @@ body {
 }
 .register p a {
   color: white;
+  text-decoration: underline;
 }
 .register input {
   border-radius: 5px;
@@ -44,6 +50,10 @@ body {
 }
 .registerButton:hover {
   background: rgb(187, 187, 187);
+}
+
+.intro {
+  color: rgba(231, 235, 45, 0.664);
 }
 
 
@@ -60,7 +70,7 @@ a {
   color: white;
 }
 a:hover {
-  color: rgba(255, 255, 255, 0.664);
+  color: rgba(231, 235, 45, 0.664);
 }
 
 
@@ -126,6 +136,7 @@ a:hover {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .mealCardTwo {

@@ -16,6 +16,10 @@ export const ADD_MEAL_START = 'ADD_MEAL_START'
 export const ADD_MEAL_SUCCESS = 'ADD_MEAL_SUCCESS'
 export const ADD_MEAL_FAILED = 'ADD_MEAL_FAILED'
 
+export const GET_MEAL_START = 'GET_MEAL_START'
+export const GET_MEAL_SUCCESS = 'GET_MEAL_SUCCESS'
+export const GET_MEAL_FAILED = 'GET_MEAL_FAILED'
+
 export const UPDATE_MEAL_START = 'UPDATE_MEAL_START'
 export const UPDATE_MEAL_SUCCESS = 'UPDATE_MEAL_SUCCESS'
 export const UPDATE_MEAL_FAILED = 'UPDATE_MEAL_FAILED'
@@ -23,6 +27,8 @@ export const UPDATE_MEAL_FAILED = 'UPDATE_MEAL_FAILED'
 export const DELETE_MEAL_START = 'DELETE_MEAL_START'
 export const DELETE_MEAL_SUCCESS = 'DELETE_MEAL_SUCCESS'
 export const DELETE_MEAL_FAILED = 'DELETE_MEAL_FAILED'
+
+export const MEAL_ID = 'MEAL_ID'
 
 
 
@@ -85,22 +91,33 @@ export function addMeal(payload) {
       Authorization: localStorage.getItem('token'),
     }
     console.log(payload)
-    // payload = {
-    //   restaurant_name: "Pizza Place TEST2",
-    //   restaurant_type: "Italian",
-    //   item_name: "Pepperoni Pizza",
-    //   item_photo: "https://images.unsplash.com/photo-1544982503-9f984c14501a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-    //   food_rating: 5,
-    //   item_comment: "Wow, pizza was so good! I really enjoyed it!",
-    //   wait_time: "About 10 minutes.",
-    //   date_visited: "2018-11-02",
-    // }
+
     axios.post('https://build-week-foodiefun.herokuapp.com/api/meals', payload, { headers })
       .then((res) => {
         dispatch({type: ADD_MEAL_SUCCESS, payload: res.data})
       })
       .catch((err) => {
-        dispatch({type: ADD_MEAL_FAILED, payload: err.response})
+        console.log(err)
+        dispatch({type: ADD_MEAL_FAILED, payload: err})
+      })
+  }
+}
+
+export function getMeal(id) {
+  return (dispatch) => {
+    dispatch({ type: GET_MEAL_START })
+
+    const headers = {
+      Authorization: localStorage.getItem('token'),
+    }
+
+    axios.get(`https://build-week-foodiefun.herokuapp.com/api/meals/${id}`, { headers })
+      .then((res) => {
+        dispatch({ type: GET_MEAL_SUCCESS, payload: res.data })
+      })
+      .catch((err) => {
+        console.log(err)
+        dispatch({ type: GET_MEAL_FAILED, payload: err.response.data })
       })
   }
 }
@@ -113,7 +130,7 @@ export function updateMeal(payload, id) {
       Authorization: localStorage.getItem('token'),
     }
     console.log(payload)
-    axios.post(`https://build-week-foodiefun.herokuapp.com/api/meals/${id}`, payload, { headers })
+    axios.put(`https://build-week-foodiefun.herokuapp.com/api/meals/${id}`, payload, { headers })
       .then((res) => {
         dispatch({ type: UPDATE_MEAL_SUCCESS, payload: res.data })
       })
@@ -138,6 +155,13 @@ export function deleteMeal(id) {
       .catch((err) => {
         dispatch({ type: DELETE_MEAL_FAILED, payload: err.response })
       })
+  }
+}
+
+export function mealID(id) {
+  return {
+    type: MEAL_ID,
+    payload: id
   }
 }
 

@@ -2,13 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import StarRatingComponent from 'react-star-rating-component'
+import { getMeal } from '../actions'
 
 class MealList extends React.Component {
-
-
   
   render() {
     const { userData, isLoading } = this.props
+    console.log(userData)
 
     if (isLoading) {
       return <p>Meals are loading...</p>
@@ -33,9 +33,8 @@ class MealList extends React.Component {
             id
           } = meal
 
-          console.log(item_photo)
 
-          return <Link key={id} to={`/meal/${id}`}>
+          return <Link key={id} onClick={this.clickHandler} to={`/meal/${id}`}>
             <li className='mealCard' key={id}>
               <section className='mealCardTop'>
                 <h2 className='restName'>{restaurant_name}</h2>
@@ -72,7 +71,13 @@ const mapStateToProps = state => ({
   date_visited: state.date_visited,
   userData: state.userData,
   isLoading: state.isLoading,
-  id: state.id
+  id: state.id,
+  error: state.error,
+  mealID: state.mealID,
 })
 
-export default connect(mapStateToProps)(MealList)
+const mapDispatchToProps = {
+  getMeal,
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MealList)

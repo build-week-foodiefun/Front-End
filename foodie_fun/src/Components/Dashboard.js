@@ -2,22 +2,22 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
-import { getAccount } from '../actions'
+import { getAccount, getMeal } from '../actions'
 import NavBar from './NavBar'
 import AddMeal from './AddMeal'
 import MealList from './MealList'
 import Meal from './Meal'
 
 class App extends React.Component {
-
+  
   componentDidMount() {
     this.props.getAccount()
   }
-
+  
   render() {
-
+    
     return (
-       
+      
       <div className="App">
         <nav>
           <NavBar />
@@ -25,6 +25,7 @@ class App extends React.Component {
       
 
         { this.props.isLoading ? <p className='loading'>Loading your meals...</p> : 
+          this.props.userData === undefined ? window.location.reload() :
           <div className='appRoutes'>
             <section className='listRoute'>
               <Route exact path='/' render={props => <MealList {...props} />} />
@@ -41,10 +42,12 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   userData: state.userData,
   isLoading: state.isLoading,
+  mealID: state.mealID,
 })
 
 const mapDispatchToProps = {
   getAccount,
+  getMeal,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

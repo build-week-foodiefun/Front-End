@@ -50,7 +50,6 @@ class AddMeal extends React.Component {
       wait_time,
       date_visited
     }
-    console.log(payload)
     this.props.addMeal(payload)
 
     this.setState({
@@ -92,7 +91,6 @@ class AddMeal extends React.Component {
       wait_time,
       date_visited
     } = this.state
-    console.log(food_rating)
     return (
       <form className='addMeal' onSubmit={this.newMeal}>
         <h2 className='addMealHeader'>Was it amazing? The worst ever? Add it so you'll have a way to remember!</h2>
