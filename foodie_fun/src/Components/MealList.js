@@ -4,8 +4,6 @@ import { connect } from 'react-redux'
 import StarRatingComponent from 'react-star-rating-component'
 
 class MealList extends React.Component {
-
-
   
   render() {
     const { userData, isLoading } = this.props

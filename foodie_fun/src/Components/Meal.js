@@ -3,12 +3,43 @@ import { Link, Route } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
 import UpdateMeal from './UpdateMeal'
+import { getMeal } from '../actions'
 
 
 class Meal extends React.Component {
-
-  render() {
+  constructor(props) {
+    super(props)
     const meal = this.props.userData.find(meal => `${meal.id}` === this.props.match.params.id)
+    componentWillUpdate(nextProps, nextState) {
+      
+      this.props.getMeal(meal.id)
+    }
+    
+    const {
+      restaurant_name,
+      restaurant_type,
+      item_photo,
+      item_name,
+      food_rating,
+      item_comment,
+      wait_time,
+      date_visited,
+      id
+    } = this.props.userMeal
+    this.state = {
+      restaurant_name,
+      restaurant_type,
+      item_photo,
+      item_name,
+      food_rating,
+      item_comment,
+      wait_time,
+      date_visited,
+      id
+    }
+  }
+  
+  render() {
     const { 
       restaurant_name,
       restaurant_type,
@@ -17,9 +48,10 @@ class Meal extends React.Component {
       food_rating,
       item_comment,
       wait_time,
-      date_visited
-    } = meal
-    console.log(meal)
+      date_visited,
+      id
+    } = this.state
+    console.log(this.props.userMeal)
     return (
       <div className='mealCard mealCardTwo'>
         {this.props.error && <p className='error'>{this.props.error}</p>}
@@ -48,7 +80,7 @@ class Meal extends React.Component {
           </div>
         </section>
         <nav id='mealNav'>
-          <Link to={`/meal/${meal.id}/update`}>Update Meal</Link>
+          <Link to={`/meal/${id}/update`}>Update Meal</Link>
         </nav>
         <Route path={`/meal/:id/update`} render={props => <UpdateMeal {...props} />} />
       </div>
@@ -58,6 +90,11 @@ class Meal extends React.Component {
 
 const mapStateToProps = state => ({
   userData: state.userData,
+  userMeal: state.userMeal,
 })
 
-export default connect(mapStateToProps)(Meal)
+const mapDispatchToProps = {
+  getMeal,
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Meal)
