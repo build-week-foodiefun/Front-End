@@ -1,6 +1,8 @@
 :root {
-  --red: rgb(182, 9, 9);
-  --yellow: rgb(255, 208, 0);
+  --red: #c51533;
+  /* --red: #d64760; */
+  /* --yellow: rgb(255, 208, 0); */
+  --border: solid 5px white;
 }
 
 .App {
@@ -8,6 +10,7 @@
   flex-flow: column wrap;
   display: flex;
   justify-content: center;
+  color: white;
 }
 
 body {
@@ -44,26 +47,47 @@ body {
 }
 
 
+.pleaseAdd {
+  border: var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  background: var(--red);
+  opacity: .95;
+  margin: 1rem;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  color: rgba(255, 255, 255, 0.664);
+}
+
+
 .navBar {
   background: var(--red);
-  width: 100vw;
+  opacity: .9;
   height: 2rem;
   padding: 1rem;
   display: flex;
-  justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: space-between;
   align-items: center;
-  border-bottom: solid 1px var(--yellow);
+  border-bottom: solid 2px white;
 }
 .navBar button {
-  margin-left: 20rem;
   border-radius: 5px;
   padding: 4px 10px;
 }
 .navBar a {
   color: white;
+  margin: 0 2rem 0 0;
 }
 
-
+.listRoute {
+  width: 100%;
+  align-self: flex-start
+}
 .mealList {
   margin: 1rem;
   display: flex;
@@ -75,17 +99,19 @@ body {
   text-decoration: none;
   list-style-type: none;
   color: white;
+  width: 70%
 }
 
 
 .mealCard {
   display: flex;
   flex-flow: column wrap;
-  border: solid 1px var(--yellow);
+  border: var(--border);
   border-radius: 10px;
   background: var(--red);
+  opacity: .95;
   margin: 1rem;
-  width: 40rem;
+  width: 100%;
 }
 .mealCardImg {
   display: flex;
@@ -95,9 +121,21 @@ body {
   width: 20rem;
 }
 
+.appRoutes {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  border: solid yellow;
+}
+
+.mealCardTwo {
+  width: 70%;
+
+}
+
 .itemImg {
-  margin: 1rem .5rem .5rem .5rem;
-  border: solid 1px var(--yellow);
+  margin: 2rem .5rem .5rem .5rem;
   width: 10rem;
   height: 8rem;
   border-radius: 10px;
@@ -114,11 +152,15 @@ body {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
+  align-content: center;
+  width: 100%;
+  margin-right: .5rem;
 }
 .mealCardTop {
-  border-bottom: solid 1px var(--yellow)
+  border-bottom: solid 2px white;
+  width: 100%;
 }
 .mealCardBottom {
   display: flex;
-
+  width: 100%;
 }

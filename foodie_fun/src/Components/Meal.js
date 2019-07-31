@@ -21,16 +21,32 @@ class Meal extends React.Component {
     } = meal
     console.log(meal)
     return (
-      <div className='meal'>
+      <div className='mealCard mealCardTwo'>
         {this.props.error && <p className='error'>{this.props.error}</p>}
-        <h2 className='restName'>{restaurant_name}</h2>
+        {/* <h2 className='restName'>{restaurant_name}</h2>
         <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
         <img className='itemImg' src={`${item_photo}`} alt='A Meal' />
         <h3 className='itemName'>Meal: {item_name}</h3>
         <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /> <br />
         <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
         <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
-        <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p>
+        <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p> */}
+        <section className='mealCardTop'>
+          <h2 className='restName'>{restaurant_name}</h2>
+        </section>
+        <section className='mealCardBottom'>
+          <div className='mealCardImg'>
+            <img className='itemImg' src={`${item_photo}`} alt='A Meal' />
+            <h3 className='itemName'>Meal: {item_name}</h3>
+            <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /> <br />
+          </div>
+          <div className='mealCardBody'>
+            <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
+            <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
+            <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
+            <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p>
+          </div>
+        </section>
         <nav id='mealNav'>
           <Link to={`/meal/${meal.id}/update`}>Update Meal</Link>
         </nav>

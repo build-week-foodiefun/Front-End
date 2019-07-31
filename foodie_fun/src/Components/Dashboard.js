@@ -25,8 +25,10 @@ class App extends React.Component {
       
 
         { this.props.isLoading ? <p className='loading'>Loading your meals...</p> : 
-          <div>
-            <Route exact path='/' render={props => <MealList {...props} />} />
+          <div className='appRoutes'>
+            <section className='listRoute'>
+              <Route exact path='/' render={props => <MealList {...props} />} />
+            </section>
             <Route path='/add' render={(props) => <AddMeal {...props} />} />
             <Route path='/meal/:id' render={(props) => <Meal {...props} />} />
           </div>

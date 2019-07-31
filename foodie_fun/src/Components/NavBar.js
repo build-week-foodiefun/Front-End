@@ -12,8 +12,10 @@ function NavBar(props) {
 
   return (
     <div className='navBar'>
-      <Link to='/'>Home</Link>
-      <Link to='/add'>Add A Meal</Link>
+      <section className='navBarLinks'>
+        <Link to='/'>Home</Link>
+        <Link to='/add'>Add A Meal</Link>
+      </section>
       <button className='logoutButton' type='button' onClick={logout}>Logout</button>
     </div>
   )
