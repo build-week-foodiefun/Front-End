@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
-import { updateMeal, deleteMeal } from '../actions'
+import { updateMeal, deleteMeal, getMeal } from '../actions'
 
 class AddMeal extends React.Component {
   constructor(props) {
@@ -19,7 +19,7 @@ class AddMeal extends React.Component {
       date_visited: meal.date_visited,
     }
   }
-
+  
   newMeal = evt => {
     evt.preventDefault()
     const { restaurant_name,
@@ -46,8 +46,8 @@ class AddMeal extends React.Component {
     const id = this.props.match.params.id
     
     this.props.updateMeal(payload,id)
-
-    this.props.history.push(`/meal/${id}`)
+    
+    this.props.history.push(`/`)
   }
 
   changeHandler = evt => {
@@ -66,7 +66,6 @@ class AddMeal extends React.Component {
 
   deleteItem = evt => {
     evt.preventDefault()
-    console.log(this.props.match.params.id)
 
     const id = this.props.match.params.id
 
@@ -118,6 +117,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   updateMeal,
   deleteMeal,
+  getMeal,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AddMeal))

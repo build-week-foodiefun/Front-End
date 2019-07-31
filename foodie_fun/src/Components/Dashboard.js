@@ -9,22 +9,15 @@ import MealList from './MealList'
 import Meal from './Meal'
 
 class App extends React.Component {
-  // constructor() {
-  //   super()
-  //   this.state = {
-  //     mealID: this.props.mealID,
-  //   }
-  // }
-
+  
   componentDidMount() {
-    this.props.getMeal(this.props.mealID)
     this.props.getAccount()
   }
   
   render() {
-
+    
     return (
-       
+      
       <div className="App">
         <nav>
           <NavBar />

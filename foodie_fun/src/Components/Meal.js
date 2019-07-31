@@ -7,11 +7,9 @@ import { getMeal, mealID } from '../actions'
 
 
 class Meal extends React.Component {
-  constructor(props) {
-    super(props)
+  
+  render() {
     const meal = this.props.userData.find(meal => `${meal.id}` === this.props.match.params.id)
-    this.props.mealID(meal.id)
-    
     const {
       restaurant_name,
       restaurant_type,
@@ -22,44 +20,11 @@ class Meal extends React.Component {
       wait_time,
       date_visited,
       id
-    } = this.props.userMeal
-    this.state = {
-      restaurant_name,
-      restaurant_type,
-      item_photo,
-      item_name,
-      food_rating,
-      item_comment,
-      wait_time,
-      date_visited,
-      id
-    }
-  }
-  
-  render() {
-    const { 
-      restaurant_name,
-      restaurant_type,
-      item_photo,
-      item_name,
-      food_rating,
-      item_comment,
-      wait_time,
-      date_visited,
-      id
-    } = this.state
-    console.log(this.props.userMeal)
+    } = meal
     return (
       <div className='mealCard mealCardTwo'>
         {this.props.error && <p className='error'>{this.props.error}</p>}
-        {/* <h2 className='restName'>{restaurant_name}</h2>
-        <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
-        <img className='itemImg' src={`${item_photo}`} alt='A Meal' />
-        <h3 className='itemName'>Meal: {item_name}</h3>
-        <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /> <br />
-        <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
-        <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
-        <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p> */}
+
         <section className='mealCardTop'>
           <h2 className='restName'>{restaurant_name}</h2>
         </section>
@@ -88,6 +53,7 @@ class Meal extends React.Component {
 const mapStateToProps = state => ({
   userData: state.userData,
   userMeal: state.userMeal,
+  mealID: state.mealID,
 })
 
 const mapDispatchToProps = {

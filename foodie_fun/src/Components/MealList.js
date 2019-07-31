@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import StarRatingComponent from 'react-star-rating-component'
+import { getMeal } from '../actions'
 
 class MealList extends React.Component {
   
@@ -33,7 +34,7 @@ class MealList extends React.Component {
           } = meal
 
 
-          return <Link key={id} to={`/meal/${id}`}>
+          return <Link key={id} onClick={this.clickHandler} to={`/meal/${id}`}>
             <li className='mealCard' key={id}>
               <section className='mealCardTop'>
                 <h2 className='restName'>{restaurant_name}</h2>
@@ -72,6 +73,11 @@ const mapStateToProps = state => ({
   isLoading: state.isLoading,
   id: state.id,
   error: state.error,
+  mealID: state.mealID,
 })
 
-export default connect(mapStateToProps)(MealList)
+const mapDispatchToProps = {
+  getMeal,
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(MealList)
