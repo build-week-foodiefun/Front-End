@@ -22,17 +22,25 @@ class App extends React.Component {
         <nav>
           <NavBar />
         </nav>
+      
 
-        <Route exact path='/' render={props => <MealList {...props} />} />
-        <Route path='/add' render={(props) => <AddMeal {...props} />} />
-        <Route path='/meal/:id' render={(props) => <Meal {...props} />} />
+        { this.props.isLoading ? <p className='loading'>Loading your meals...</p> : 
+          <div className='appRoutes'>
+            <section className='listRoute'>
+              <Route exact path='/' render={props => <MealList {...props} />} />
+            </section>
+            <Route path='/add' render={(props) => <AddMeal {...props} />} />
+            <Route path='/meal/:id' render={(props) => <Meal {...props} />} />
+          </div>
+        }
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  userData: state.userData
+  userData: state.userData,
+  isLoading: state.isLoading,
 })
 
 const mapDispatchToProps = {
