@@ -20,6 +20,7 @@ import {
   DELETE_MEAL_START,
   DELETE_MEAL_SUCCESS,
   DELETE_MEAL_FAILED,
+  MEAL_ID,
 } from './actions'
 
 const initialState = {
@@ -188,6 +189,13 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: action.payload.error
+      }
+    }
+    case MEAL_ID: {
+      console.log(action.payload)
+      return {
+        ...state,
+        mealID: action.payload
       }
     }
     default:

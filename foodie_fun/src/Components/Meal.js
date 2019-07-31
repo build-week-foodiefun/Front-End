@@ -3,17 +3,14 @@ import { Link, Route } from 'react-router-dom'
 import StarRatingComponent from 'react-star-rating-component'
 import { connect } from 'react-redux'
 import UpdateMeal from './UpdateMeal'
-import { getMeal } from '../actions'
+import { getMeal, mealID } from '../actions'
 
 
 class Meal extends React.Component {
   constructor(props) {
     super(props)
     const meal = this.props.userData.find(meal => `${meal.id}` === this.props.match.params.id)
-    componentWillUpdate(nextProps, nextState) {
-      
-      this.props.getMeal(meal.id)
-    }
+    this.props.mealID(meal.id)
     
     const {
       restaurant_name,
@@ -95,6 +92,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   getMeal,
+  mealID
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Meal)

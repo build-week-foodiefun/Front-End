@@ -2,18 +2,25 @@ import React from 'react';
 import '../App.css';
 import { connect } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom'
-import { getAccount } from '../actions'
+import { getAccount, getMeal } from '../actions'
 import NavBar from './NavBar'
 import AddMeal from './AddMeal'
 import MealList from './MealList'
 import Meal from './Meal'
 
 class App extends React.Component {
+  // constructor() {
+  //   super()
+  //   this.state = {
+  //     mealID: this.props.mealID,
+  //   }
+  // }
 
   componentDidMount() {
+    this.props.getMeal(this.props.mealID)
     this.props.getAccount()
   }
-
+  
   render() {
 
     return (
@@ -42,10 +49,12 @@ class App extends React.Component {
 const mapStateToProps = (state) => ({
   userData: state.userData,
   isLoading: state.isLoading,
+  mealID: state.mealID,
 })
 
 const mapDispatchToProps = {
   getAccount,
+  getMeal,
 }
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

@@ -28,6 +28,8 @@ export const DELETE_MEAL_START = 'DELETE_MEAL_START'
 export const DELETE_MEAL_SUCCESS = 'DELETE_MEAL_SUCCESS'
 export const DELETE_MEAL_FAILED = 'DELETE_MEAL_FAILED'
 
+export const MEAL_ID = 'MEAL_ID'
+
 
 
 export function createUser(username, password) {
@@ -162,6 +164,13 @@ export function deleteMeal(id) {
       .catch((err) => {
         dispatch({ type: DELETE_MEAL_FAILED, payload: err.response })
       })
+  }
+}
+
+export function mealID(id) {
+  return {
+    type: MEAL_ID,
+    payload: id
   }
 }
 
