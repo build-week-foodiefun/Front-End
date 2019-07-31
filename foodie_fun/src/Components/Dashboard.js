@@ -25,6 +25,7 @@ class App extends React.Component {
       
 
         { this.props.isLoading ? <p className='loading'>Loading your meals...</p> : 
+          this.props.userData === undefined ? window.location.reload() :
           <div className='appRoutes'>
             <section className='listRoute'>
               <Route exact path='/' render={props => <MealList {...props} />} />

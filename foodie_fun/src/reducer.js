@@ -8,6 +8,9 @@ import {
   GET_ACCOUNT_START,
   GET_ACCOUNT_SUCCESS,
   GET_ACCOUNT_FAILED,
+  GET_MEAL_START,
+  GET_MEAL_SUCCESS,
+  GET_MEAL_FAILED,
   ADD_MEAL_START,
   ADD_MEAL_SUCCESS,
   ADD_MEAL_FAILED,
@@ -23,6 +26,7 @@ const initialState = {
   isLoading: false,
   error: null,
   userData: [],
+  userMeal: {},
 }
 
 export default function(state = initialState, action) {
@@ -106,7 +110,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        userData: action.payload
+        // userData: action.payload
       }
     }
     case ADD_MEAL_FAILED: {
@@ -129,7 +133,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        userData: action.payload
+        // userData: action.payload
       }
     }
     case UPDATE_MEAL_FAILED: {
@@ -152,10 +156,33 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        userData: action.payload
+        // userData: action.payload
       }
     }
     case DELETE_MEAL_FAILED: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: action.payload.error
+      }
+    }
+    case GET_MEAL_START: {
+      return {
+        ...state,
+        isLoading: true,
+      }
+    }
+    case GET_MEAL_SUCCESS: {
+      console.log(action.payload)
+      return {
+        ...state,
+        isLoading: false,
+        error: null,
+        userMeal: action.payload
+      }
+    }
+    case GET_MEAL_FAILED: {
       console.log(action.payload)
       return {
         ...state,

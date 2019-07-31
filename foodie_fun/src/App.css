@@ -52,6 +52,10 @@ body {
   background: rgb(187, 187, 187);
 }
 
+.intro {
+  color: rgba(231, 235, 45, 0.664);
+}
+
 
 .pleaseAdd {
   border: var(--border);

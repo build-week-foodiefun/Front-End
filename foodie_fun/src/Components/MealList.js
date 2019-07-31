@@ -9,6 +9,7 @@ class MealList extends React.Component {
   
   render() {
     const { userData, isLoading } = this.props
+    console.log(userData)
 
     if (isLoading) {
       return <p>Meals are loading...</p>
@@ -33,7 +34,6 @@ class MealList extends React.Component {
             id
           } = meal
 
-          console.log(item_photo)
 
           return <Link key={id} to={`/meal/${id}`}>
             <li className='mealCard' key={id}>
@@ -72,7 +72,8 @@ const mapStateToProps = state => ({
   date_visited: state.date_visited,
   userData: state.userData,
   isLoading: state.isLoading,
-  id: state.id
+  id: state.id,
+  error: state.error,
 })
 
 export default connect(mapStateToProps)(MealList)
