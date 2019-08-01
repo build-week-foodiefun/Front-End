@@ -1,6 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom'
+import MealList from './MealList'
+import StarRatingComponent from 'react-star-rating-component'
+
 
 class Home extends React.Component {
   constructor(props) {
@@ -13,6 +16,7 @@ class Home extends React.Component {
   render() {
     const { userData, isLoading } = this.props
     console.log(userData)
+    console.log(isLoading)
 
     if (isLoading) {
       return <p>Meals are loading...</p>
@@ -22,45 +26,55 @@ class Home extends React.Component {
     }
 
     return (
-      <table className='mealTable'>
-        <tr className='headRow'>
-          <th className='tableHead'>Rating</th>
-          <th className='tableHead'>Food Type</th>
-          <th className='tableHead'>Meal Photo</th>
-          <th className='tableHead'>Restaurant</th>
-          <th className='tableHead'>Meal Name</th>
-          <th className='tableHead'>Wait Time</th>
-          <th className='tableHead'>Comments</th>
-          <th className='tableHead'>Ordered On</th>
-        </tr>
-        {userData.map(meal => {
-
-          const {
-            restaurant_name,
-            restaurant_type,
-            item_photo,
-            item_name,
-            food_rating,
-            item_comment,
-            wait_time,
-            date_visited,
-            id
-          } = meal
-
-          return <Link key={id} to={`/meal/${id}`}>
-            <tr className='mealRow'>
-              <td className='tableRating'>{food_rating}</td>
-              <td className='tableType'>{restaurant_type}</td>
-              <td className='tablePhoto'>{item_photo}</td>
-              <td className='tableRest'>{restaurant_name}</td>
-              <td className='tableName'>{item_name}</td>
-              <td className='tableWait'>{wait_time}</td>
-              <td className='tableComments'>{item_comment}</td>
-              <td className='tableDate'>{date_visited}</td>
+      <div className='tableContainer'>
+        <table className='mealTable'>
+          <thead>
+            <tr className='headRow'>
+              <th className='tableHead'>Rating</th>
+              <th className='tableHead'>Food Type</th>
+              <th className='tableHead'>Meal Photo</th>
+              <th className='tableHead'>Restaurant</th>
+              <th className='tableHead'>Meal Name</th>
+              <th className='tableHead'>Wait Time</th>
+              <th className='tableHead'>Comments</th>
+              <th className='tableHead'>Ordered On</th>
             </tr>
-          </Link>
-        })}
-      </table>
+          </thead>
+          <tbody>
+            {userData.map(meal => {
+
+              const {
+                restaurant_name,
+                restaurant_type,
+                item_photo,
+                item_name,
+                food_rating,
+                item_comment,
+                wait_time,
+                date_visited,
+                id
+              } = meal
+
+              return (
+                <tr className='mealRow' key={id}>
+                  <td className='tableRating'><Link to={`/meal/${id}`}><StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /></Link></td>
+                    <td className='tableType'><Link to={`/meal/${id}`}>{restaurant_type}</Link></td>
+                      <td className='tablePhoto'><Link to={`/meal/${id}`}><img className='itemImg' src={`${item_photo}`} alt='A Meal' /></Link></td>
+                        <td className='tableRest'><Link to={`/meal/${id}`}>{restaurant_name}</Link></td>
+                          <td className='tableName'><Link to={`/meal/${id}`}>{item_name}</Link></td>
+                            <td className='tableWait'><Link to={`/meal/${id}`}>{wait_time}</Link></td>
+                              <td className='tableComments'><Link to={`/meal/${id}`}>{item_comment}</Link></td>
+                                <td className='tableDate'><Link to={`/meal/${id}`}>{date_visited}</Link></td>
+                </tr>
+            )})
+            }
+          </tbody>
+        </table>
+      
+        <section className='listRoute'>
+          <Route exact path='/' render={props => <MealList {...props} />} />
+        </section>
+      </div>
     )
   }
 }
@@ -70,4 +84,4 @@ const mapStateToProps = state => ({
   isLoading: state.isLoading,
 })
 
-export default connect(null,mapStateToProps)(Home)
+export default connect(mapStateToProps)(Home)
