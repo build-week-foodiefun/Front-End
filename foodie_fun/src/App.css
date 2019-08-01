@@ -95,11 +95,11 @@ a:hover {
 }
 
 .listRoute {
-  width: 100%;
+  width: 20%;
   align-self: flex-start
 }
 .mealList {
-  margin: 1rem;
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: flex-start;
@@ -109,7 +109,7 @@ a:hover {
   text-decoration: none;
   list-style-type: none;
   color: white;
-  width: 70%
+  width: 100%
 }
 
 
@@ -128,7 +128,7 @@ a:hover {
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  width: 20rem;
+  width: 100%;
 }
 
 .appRoutes {
@@ -145,9 +145,9 @@ a:hover {
 }
 
 .itemImg {
-  margin: 2rem .5rem .5rem .5rem;
-  width: 10rem;
-  height: 8rem;
+  margin: .5rem .5rem .5rem .5rem;
+  width: 50%;
+  height: 45%;
   border-radius: 10px;
 }
 .itemName {
@@ -157,7 +157,7 @@ a:hover {
   margin: .5rem;
 }
 
-.mealCardBody {
+/* .mealCardBody {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -165,12 +165,13 @@ a:hover {
   align-content: center;
   width: 100%;
   margin-right: .5rem;
-}
+} */
 .mealCardTop {
   border-bottom: solid 2px white;
   width: 100%;
 }
 .mealCardBottom {
   display: flex;
+  flex-flow: column wrap;
   width: 100%;
 }
