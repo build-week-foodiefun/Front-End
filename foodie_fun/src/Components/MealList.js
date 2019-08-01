@@ -33,8 +33,7 @@ class MealList extends React.Component {
             id
           } = meal
 
-
-          return <Link key={id} onClick={this.clickHandler} to={`/meal/${id}`}>
+          return <Link key={id} to={`/meal/${id}`}>
             <li className='mealCard' key={id}>
               <section className='mealCardTop'>
                 <h2 className='restName'>{restaurant_name}</h2>
