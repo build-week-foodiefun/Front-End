@@ -58,13 +58,13 @@ class Home extends React.Component {
               return (
                 <tr className='mealRow' key={id}>
                   <td className='tableRating'><Link to={`/meal/${id}`}><StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /></Link></td>
-                    <td className='tableType'><Link to={`/meal/${id}`}>{restaurant_type}</Link></td>
-                      <td className='tablePhoto'><Link to={`/meal/${id}`}><img className='itemImg' src={`${item_photo}`} alt='A Meal' /></Link></td>
-                        <td className='tableRest'><Link to={`/meal/${id}`}>{restaurant_name}</Link></td>
-                          <td className='tableName'><Link to={`/meal/${id}`}>{item_name}</Link></td>
-                            <td className='tableWait'><Link to={`/meal/${id}`}>{wait_time}</Link></td>
-                              <td className='tableComments'><Link to={`/meal/${id}`}>{item_comment}</Link></td>
-                                <td className='tableDate'><Link to={`/meal/${id}`}>{date_visited}</Link></td>
+                  <td className='tableType'><Link to={`/meal/${id}`}>{restaurant_type}</Link></td>
+                  <td className='tablePhoto'><Link to={`/meal/${id}`}><img className='itemImg' src={`${item_photo}`} alt='A Meal' /></Link></td>
+                  <td className='tableRest'><Link to={`/meal/${id}`}>{restaurant_name}</Link></td>
+                  <td className='tableName'><Link to={`/meal/${id}`}>{item_name}</Link></td>
+                  <td className='tableWait'><Link to={`/meal/${id}`}>{wait_time}</Link></td>
+                  <td className='tableComments'><Link to={`/meal/${id}`}>{item_comment}</Link></td>
+                  <td className='tableDate'><Link to={`/meal/${id}`}>{date_visited}</Link></td>
                 </tr>
             )})
             }
