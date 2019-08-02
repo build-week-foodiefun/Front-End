@@ -78,7 +78,7 @@ class Home extends React.Component {
           <select id='typeFilter' onChange={this.typeFilter}>
             <option value='choose'>- None -</option>
             {this.oneOfEach().map((meal, index) => {
-              return <option key={index} value={meal}>{meal}</option>
+              return <option value={meal.toLowerCase()} key={index}>{meal}</option>
             })}
           </select>
         </div>

@@ -175,15 +175,6 @@ a:hover {
   margin: .5rem;
 }
 
-/* .mealCardBody {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  width: 100%;
-  margin-right: .5rem;
-} */
 .mealCardTop {
   border-bottom: solid 2px white;
   width: 100%;
@@ -192,4 +183,12 @@ a:hover {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
