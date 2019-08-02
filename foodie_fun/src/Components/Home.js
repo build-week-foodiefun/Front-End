@@ -32,6 +32,30 @@ class Home extends React.Component {
     }
   }
 
+  typeFilter = evt => {
+    let filtered = this.props.userData.filter(meal => meal.restaurant_type.toLowerCase() === evt.target.value.toLowerCase())
+    
+    if (filtered.length === 0) {
+      console.log(filtered)
+      this.setState({
+        userData: this.props.userData,
+        filterInput: ''
+      })
+    }
+    else {
+      this.setState({
+        filterInput: evt.target.value,
+        userData: filtered,
+      })
+    }
+  }
+
+  oneOfEach = () => {
+    const items = this.props.userData.map(item => item.restaurant_type)
+    const oneOfEachItem = [...new Set(items)]
+    return oneOfEachItem
+  }
+
   render() {
     const { isLoading } = this.props
     const { userData, filterInput } = this.state
@@ -48,8 +72,15 @@ class Home extends React.Component {
     return (
       <section className='home'>
         <div className='filters'>
-          <label htmlFor='ratingFilter'>Search by rating: </label>
-          <input type='number' max='5' min='0' id='ratingFilter' value={filterInput} onChange={this.ratingFilter} />
+          <label htmlFor='ratingFilter'>Search by - rating: </label>
+          <input type='number' max='5' min='0' id='ratingFilter' placeholder='(0-5)' value={filterInput} onChange={this.ratingFilter} />
+          <label htmlFor='typeFilter'>type: </label>
+          <select id='typeFilter'>
+            <option value='choose'>Choose</option>
+            {this.oneOfEach().map((meal, index) => {
+              return <option key={index} value={meal}>{meal}</option>
+            })}
+          </select>
         </div>
         <div className='tableContainer'>
           <table className='mealTable'>
