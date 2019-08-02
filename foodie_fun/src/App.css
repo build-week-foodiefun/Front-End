@@ -73,7 +73,6 @@ a:hover {
   color: rgba(231, 235, 45, 0.664);
 }
 
-
 .navBar {
   background: var(--red);
   opacity: .9;
@@ -104,6 +103,7 @@ a:hover {
   box-sizing: border-box;
   position: fixed;
   right: 1px;
+  top: 56px;
 }
 .mealList {
   width: 100%;
