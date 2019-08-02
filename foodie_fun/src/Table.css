@@ -16,11 +16,15 @@
   opacity: .9;
   box-sizing: border-box;
   border-spacing: 0;
+  table-layout: fixed;
+  word-wrap: break-word;
 }
 
 thead, tr, th, tbody, td {
   width: 100%;
   border: solid 2px black;
+  overflow: hidden;
+  word-wrap: break-word;
 }
 tr {
   display: flex;
@@ -32,10 +36,10 @@ tr {
 }
 th {
   height: 100%;
+  width: 100%;
   display:flex;
   justify-content: center;
-  align-items: flex-end;
-  line-height: 2rem;
+  align-items: center;
   font-weight: 999;
 }
 td {
@@ -44,9 +48,14 @@ td {
   justify-content: center;
   align-items: center;
   position: relative;
+  word-wrap: break-word;
+}
+td a {
+  word-wrap: break-word;
+  overflow-x: hidden;
 }
 .headRow {
-  height: 2rem;
+  height: 4rem;
 }
 
 .tablePhoto img{

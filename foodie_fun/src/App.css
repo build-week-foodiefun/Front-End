@@ -68,6 +68,7 @@ body {
 a {
   text-decoration: none;
   color: white;
+  word-wrap: break-word;
 }
 a:hover {
   color: rgba(231, 235, 45, 0.664);
