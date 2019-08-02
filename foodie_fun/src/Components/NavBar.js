@@ -16,7 +16,10 @@ function NavBar(props) {
         <Link to='/'>Home</Link>
         <Link to='/add'>Add A Meal</Link>
       </section>
-      <button className='logoutButton' type='button' onClick={logout}>Logout</button>
+      <div className='notLinks'>
+        <p className='foodieFun'>Foodie-Fun</p>
+        <button className='logoutButton' type='button' onClick={logout}>Logout</button>
+      </div>
     </div>
   )
 }
