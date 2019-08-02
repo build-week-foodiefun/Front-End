@@ -86,7 +86,7 @@ class AddMeal extends React.Component {
     } = this.state
     
     return (
-      <form className='addMeal' onSubmit={this.newMeal}>
+      <form className='addMeal updateMeal' onSubmit={this.newMeal}>
         <h2 className='addMealHeader'>Forget something? Update it so you'll have a way to remember or click delete and forget it forever!</h2>
         <input className='restNameInput' type='text' name='restaurant_name' placeholder='Restaurant Name' value={restaurant_name} required onChange={this.changeHandler} /><br />
         <input className='restTypeInput' type='text' name='restaurant_type' placeholder='Type of Restaurant' value={restaurant_type} required onChange={this.changeHandler} /><br />

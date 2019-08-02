@@ -51,6 +51,14 @@ body {
 .registerButton:hover {
   background: rgb(187, 187, 187);
 }
+button {
+  margin: 10px;
+  border-radius: 5px;
+  padding: 4px 10px;
+}
+button:hover {
+  background: rgb(187, 187, 187);
+}
 
 .intro {
   color: rgba(231, 235, 45, 0.664);
@@ -74,6 +82,11 @@ a:hover {
   color: rgba(231, 235, 45, 0.664);
 }
 
+input {
+  border-radius: 5px;
+  padding: .1rem;
+}
+
 .navBar {
   background: var(--red);
   opacity: .9;
@@ -84,6 +97,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 2px white;
+  line-height: 1rem;
 }
 .navBar button {
   border-radius: 5px;
@@ -92,6 +106,24 @@ a:hover {
 .navBar a {
   color: white;
   margin: 0 2rem 0 0;
+}
+.navBarLinks{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 25%;
+}
+.notLinks {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.foodieFun {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 250%;
+  font-family: 'Amaranth', sans-serif;
 }
 
 .listRoute {
@@ -191,4 +223,31 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+.filters {
+  display: flex;
+  justify-content: flex-start;
+  width: 70%;
+  margin-top: 1rem;
+}
+.filters label {
+  margin: 0 .5rem;
+}
+
+.addMeal {
+  border: var(--border);
+  border-radius: 10px;
+  padding: 2%;
+  margin-top: 5%;
+  background: var(--red);
+  opacity: .9;
+}
+.updateMeal {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  width: 96%;
+  position: relative;
+  left: -.32rem;
+  top: .3rem;
 }
