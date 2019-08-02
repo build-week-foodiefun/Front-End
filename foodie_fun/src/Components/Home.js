@@ -75,8 +75,8 @@ class Home extends React.Component {
           <label htmlFor='ratingFilter'>Search by - rating: </label>
           <input type='number' max='5' min='0' id='ratingFilter' placeholder='(0-5)' value={filterInput} onChange={this.ratingFilter} />
           <label htmlFor='typeFilter'>type: </label>
-          <select id='typeFilter'>
-            <option value='choose'>Choose</option>
+          <select id='typeFilter' onChange={this.typeFilter}>
+            <option value='choose'>- None -</option>
             {this.oneOfEach().map((meal, index) => {
               return <option key={index} value={meal}>{meal}</option>
             })}
