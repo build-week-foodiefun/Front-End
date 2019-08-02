@@ -15,12 +15,21 @@ class Home extends React.Component {
   }
 
   ratingFilter = evt => {
-    const filtered = this.props.userData.filter(meal => meal.food_rating.includes(evt.target.value))
-
-    this.setState({
-      filterInput: evt.target.value,
-      userData: filtered,
-    })
+    let filtered = this.props.userData.filter(meal => meal.food_rating === parseInt(evt.target.value))
+    console.log(filtered)
+    if (filtered.length === 0) {
+      console.log(filtered)
+      this.setState({
+        userData: this.props.userData,
+        filterInput: ''
+      })
+    }
+    else {
+      this.setState({
+        filterInput: evt.target.value,
+        userData: filtered,
+      })
+    }
   }
 
   render() {
