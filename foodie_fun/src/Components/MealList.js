@@ -33,24 +33,23 @@ class MealList extends React.Component {
             id
           } = meal
 
-
-          return <Link key={id} onClick={this.clickHandler} to={`/meal/${id}`}>
+          return <Link key={id} to={`/meal/${id}`}>
             <li className='mealCard' key={id}>
               <section className='mealCardTop'>
                 <h2 className='restName'>{restaurant_name}</h2>
               </section>
               <section className='mealCardBottom'>
                 <div className='mealCardImg'>
+                  <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
                   <img className='itemImg' src={`${item_photo}`} alt='A Meal' />
                   <h3 className='itemName'>Meal: {item_name}</h3>
                   <StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /><br />
                 </div>
-                <div className='mealCardBody'>
-                  <p className='restType'><span className='intro'>Type of restaurant:</span> {restaurant_type}</p>
+                {/* <div className='mealCardBody'>
                   <p className='comment'><span className='intro'>Comments: </span>* {item_comment}</p>
                   <p className='waitTime'><span className='intro'>Time waited for meal: </span>{wait_time}</p>
                   <p className='visitDate'><span className='intro'>Ordered on: </span>{date_visited}</p>
-                </div>
+                </div> */}
               </section>
             </li>
           </Link>

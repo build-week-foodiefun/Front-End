@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import '../Table.css'
 import { Route, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Register from './Register'
@@ -13,6 +14,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <PrivateRoute exact path='/' component={Dashboard} />
+        <PrivateRoute exact path='/list' component={Dashboard} />
         <PrivateRoute exact path='/add' component={Dashboard} />
         <PrivateRoute path={`/meal/:id/`} component={Dashboard} />
         <Route exact path='/login' component={Login} />

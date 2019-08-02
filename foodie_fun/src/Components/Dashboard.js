@@ -7,6 +7,7 @@ import NavBar from './NavBar'
 import AddMeal from './AddMeal'
 import MealList from './MealList'
 import Meal from './Meal'
+import Home from './Home'
 
 class App extends React.Component {
   
@@ -27,9 +28,9 @@ class App extends React.Component {
         { this.props.isLoading ? <p className='loading'>Loading your meals...</p> : 
           this.props.userData === undefined ? window.location.reload() :
           <div className='appRoutes'>
-            <section className='listRoute'>
-              <Route exact path='/' render={props => <MealList {...props} />} />
-            </section>
+            <Route exact path='/' render={props => <Home {...props} />} />
+            
+            <Route exact path='/list' render={props => <MealList {...props} />} />
             <Route path='/add' render={(props) => <AddMeal {...props} />} />
             <Route path='/meal/:id' render={(props) => <Meal {...props} />} />
           </div>

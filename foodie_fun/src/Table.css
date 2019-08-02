@@ -1,0 +1,57 @@
+.tableContainer {
+  font-size: 70%;
+  border: solid 1px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-flow: row nowrap;
+  width: 80%;
+  margin: 0;
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.mealTable {
+  width: 100%;
+  background: var(--red);
+  opacity: .9;
+  box-sizing: border-box;
+  border-spacing: 0;
+}
+
+thead, tr, th, tbody, td {
+  width: 100%;
+  border: solid 2px black;
+}
+tr {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px;
+  height: 8rem;
+}
+th {
+  height: 100%;
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 2rem;
+  font-weight: 999;
+}
+td {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.headRow {
+  height: 2rem;
+}
+
+.tablePhoto img{
+  position: relative;
+  padding: none;
+  width: 5rem;
+  height: 5rem;
+}
