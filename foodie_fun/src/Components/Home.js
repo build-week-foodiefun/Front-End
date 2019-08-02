@@ -9,12 +9,23 @@ class Home extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      filteredData: [],
+      filterInput: [],
+      userData: this.props.userData,
     }
   }
 
+  ratingFilter = evt => {
+    const filtered = this.props.userData.filter(meal => meal.food_rating.includes(evt.target.value))
+
+    this.setState({
+      filterInput: evt.target.value,
+      userData: filtered,
+    })
+  }
+
   render() {
-    const { userData, isLoading } = this.props
+    const { isLoading } = this.props
+    const { userData, filterInput } = this.state
     console.log(userData)
     console.log(isLoading)
 
@@ -26,55 +37,61 @@ class Home extends React.Component {
     }
 
     return (
-      <div className='tableContainer'>
-        <table className='mealTable'>
-          <thead>
-            <tr className='headRow'>
-              <th className='tableHead'>Rating</th>
-              <th className='tableHead'>Food Type</th>
-              <th className='tableHead'>Meal Photo</th>
-              <th className='tableHead'>Restaurant</th>
-              <th className='tableHead'>Meal Name</th>
-              <th className='tableHead'>Wait Time</th>
-              <th className='tableHead'>Comments</th>
-              <th className='tableHead'>Ordered On</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userData.map(meal => {
+      <section className='home'>
+        <div className='filters'>
+          <label htmlFor='ratingFilter'>Search by rating: </label>
+          <input type='number' max='5' min='0' id='ratingFilter' value={filterInput} onChange={this.ratingFilter} />
+        </div>
+        <div className='tableContainer'>
+          <table className='mealTable'>
+            <thead>
+              <tr className='headRow'>
+                <th className='tableHead'>Rating</th>
+                <th className='tableHead'>Food Type</th>
+                <th className='tableHead'>Meal Photo</th>
+                <th className='tableHead'>Restaurant</th>
+                <th className='tableHead'>Meal Name</th>
+                <th className='tableHead'>Wait Time</th>
+                <th className='tableHead'>Comments</th>
+                <th className='tableHead'>Ordered On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userData.map(meal => {
 
-              const {
-                restaurant_name,
-                restaurant_type,
-                item_photo,
-                item_name,
-                food_rating,
-                item_comment,
-                wait_time,
-                date_visited,
-                id
-              } = meal
+                const {
+                  restaurant_name,
+                  restaurant_type,
+                  item_photo,
+                  item_name,
+                  food_rating,
+                  item_comment,
+                  wait_time,
+                  date_visited,
+                  id
+                } = meal
 
-              return (
-                <tr className='mealRow' key={id}>
-                  <td className='tableRating'><Link to={`/meal/${id}`}><StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /></Link></td>
-                  <td className='tableType'><Link to={`/meal/${id}`}>{restaurant_type}</Link></td>
-                  <td className='tablePhoto'><Link to={`/meal/${id}`}><img className='itemImg' src={`${item_photo}`} alt='A Meal' /></Link></td>
-                  <td className='tableRest'><Link to={`/meal/${id}`}>{restaurant_name}</Link></td>
-                  <td className='tableName'><Link to={`/meal/${id}`}>{item_name}</Link></td>
-                  <td className='tableWait'><Link to={`/meal/${id}`}>{wait_time}</Link></td>
-                  <td className='tableComments'><Link to={`/meal/${id}`}>{item_comment}</Link></td>
-                  <td className='tableDate'><Link to={`/meal/${id}`}>{date_visited}</Link></td>
-                </tr>
-            )})
-            }
-          </tbody>
-        </table>
-      
-        <section className='listRoute'>
-          <Route exact path='/' render={props => <MealList {...props} />} />
-        </section>
-      </div>
+                return (
+                  <tr className='mealRow' key={id}>
+                    <td className='tableRating'><Link to={`/meal/${id}`}><StarRatingComponent className='rating' name={'rating'} starCount={5} value={food_rating} emptyStarColor={'RGBA(255,205,80,0.5)'} renderStarIcon={() => <span role='img' aria-label='burger'><i className="fas fa-hamburger"></i></span>} /></Link></td>
+                    <td className='tableType'><Link to={`/meal/${id}`}>{restaurant_type}</Link></td>
+                    <td className='tablePhoto'><Link to={`/meal/${id}`}><img className='itemImg' src={`${item_photo}`} alt='A Meal' /></Link></td>
+                    <td className='tableRest'><Link to={`/meal/${id}`}>{restaurant_name}</Link></td>
+                    <td className='tableName'><Link to={`/meal/${id}`}>{item_name}</Link></td>
+                    <td className='tableWait'><Link to={`/meal/${id}`}>{wait_time}</Link></td>
+                    <td className='tableComments'><Link to={`/meal/${id}`}>{item_comment}</Link></td>
+                    <td className='tableDate'><Link to={`/meal/${id}`}>{date_visited}</Link></td>
+                  </tr>
+              )})
+              }
+            </tbody>
+          </table>
+        
+          <section className='listRoute'>
+            <Route exact path='/' render={props => <MealList {...props} />} />
+          </section>
+        </div>
+      </section>
     )
   }
 }
