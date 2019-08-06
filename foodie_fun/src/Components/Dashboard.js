@@ -14,8 +14,9 @@ class App extends React.Component {
   componentDidMount() {
     this.props.getAccount()
   }
-  
+
   render() {
+    console.log(this.props.mealChange)
     
     return (
       
@@ -44,6 +45,7 @@ const mapStateToProps = (state) => ({
   userData: state.userData,
   isLoading: state.isLoading,
   mealID: state.mealID,
+  mealChange: state.mealChange,
 })
 
 const mapDispatchToProps = {

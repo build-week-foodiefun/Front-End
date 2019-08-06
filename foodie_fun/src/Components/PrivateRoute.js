@@ -10,12 +10,12 @@ function PrivateRoute(props) {
 
   return (
 
-    <Route {...rest} render={() => {
+    <Route {...rest} render={(props) => {
 
       const token = localStorage.getItem('token')
 
       return token
-        ? <Component />
+        ? <Component {...props} />
         : <Redirect to="/login" />
     }} />
   )
