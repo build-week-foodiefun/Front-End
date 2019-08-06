@@ -62,7 +62,7 @@ class AddMeal extends React.Component {
       wait_time: '',
       date_visited: '',
     })
-
+    this.forceUpdate()
     this.props.history.push('/')
   }
 

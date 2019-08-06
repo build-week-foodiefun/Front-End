@@ -97,7 +97,7 @@ class Home extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {userData.map(meal => {
+              {this.props.userData.map(meal => {
 
                 const {
                   restaurant_name,
@@ -139,6 +139,7 @@ class Home extends React.Component {
 const mapStateToProps = state => ({
   userData: state.userData,
   isLoading: state.isLoading,
+  mealChange: state.mealChange,
 })
 
 export default connect(mapStateToProps)(Home)

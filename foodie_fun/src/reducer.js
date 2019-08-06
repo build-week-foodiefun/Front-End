@@ -28,6 +28,7 @@ const initialState = {
   error: null,
   userData: [],
   userMeal: {},
+  mealChange: '',
 }
 
 export default function(state = initialState, action) {
@@ -111,7 +112,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        // userData: action.payload
+        mealChange: action.payload
       }
     }
     case ADD_MEAL_FAILED: {
@@ -134,7 +135,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        // userData: action.payload
+        mealChange: action.payload
       }
     }
     case UPDATE_MEAL_FAILED: {
@@ -157,7 +158,7 @@ export default function(state = initialState, action) {
         ...state,
         isLoading: false,
         error: null,
-        // userData: action.payload
+        mealChange: action.payload
       }
     }
     case DELETE_MEAL_FAILED: {
