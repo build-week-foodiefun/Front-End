@@ -28,7 +28,7 @@ class Home extends React.Component {
       this.setState({
         filterInput: evt.target.value,
         userData: filtered,
-      })
+      }, () => {console.log(this.state)})
     }
   }
 
@@ -97,7 +97,7 @@ class Home extends React.Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.userData.map(meal => {
+              {this.state.userData.map(meal => {
 
                 const {
                   restaurant_name,
