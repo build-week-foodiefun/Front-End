@@ -47,7 +47,9 @@ class AddMeal extends React.Component {
     
     this.props.updateMeal(payload,id)
     
-    this.props.history.push(`/`)
+    setTimeout(() => {
+      this.props.history.push(`/`)
+    }, 200);
   }
 
   changeHandler = evt => {
@@ -70,7 +72,9 @@ class AddMeal extends React.Component {
     const id = this.props.match.params.id
 
     this.props.deleteMeal(id)
-    this.props.history.push('/')
+    setTimeout(() => {
+      this.props.history.push(`/`)
+    }, 200);
   }
 
   render() {
