@@ -11,12 +11,14 @@ import Login from './Login'
 class App extends React.Component {
 
   render() {
+    console.log(window.location)
     return (
       <div className="App">
         <PrivateRoute exact path='/' component={Dashboard} />
         <PrivateRoute exact path='/list' component={Dashboard} />
         <PrivateRoute exact path='/add' component={Dashboard} />
         <PrivateRoute path={`/meal/:id/`} component={Dashboard} />
+        {window.location.pathname === '/login' || window.location.pathname === '/register' ? <><h1 className='foodieFun'>Welcome to Foodie-Fun!</h1><h3>Please login or create a new account.</h3></> : null}
         <Route exact path='/login' component={Login} />
         <Route exact path='/register' component={Register} />
       </div>
